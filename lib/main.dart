@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Papyrus',
       theme: ThemeData(
+        //
         colorScheme: ColorScheme.fromSeed(seedColor: Constants.accentColor),
         useMaterial3: true,
       ),
