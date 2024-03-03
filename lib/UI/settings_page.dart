@@ -1,14 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
+import 'package:hack_pnw/Core/google_sign_in.dart';
+import 'package:hack_pnw/UI/welcome_page.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
-  // final user = FirebaseAuth.instance.currentUser;
-  // final userProfilePictureUrl = user?.photoURL ?? '';
-
   @override
   Widget build(BuildContext context) {
+
+    final user = FirebaseAuth.instance.currentUser;
+    final userProfilePictureUrl = user?.photoURL ?? '';
+
     return Scaffold(
         body: CustomScrollView(
       scrollDirection: Axis.vertical,
@@ -70,17 +75,17 @@ class SettingsPage extends StatelessWidget {
                         offset: Offset(5, 5),
                       ),
                     ]), // TODO: fix this
-                // child: Material(
-                //   elevation: 20,
-                //   shape: const CircleBorder(),
-                //   clipBehavior: Clip.antiAlias,
-                //   child: CircleAvatar(
-                //     radius: 100,
-                //     backgroundImage: NetworkImage(userProfilePictureUrl),
-                //     backgroundColor: Colors.transparent,
-                //     foregroundColor: Colors.white,
-                //   ),
-                // ),
+                child: Material(
+                  elevation: 20,
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.antiAlias,
+                  child: CircleAvatar(
+                    radius: 100,
+                    backgroundImage: NetworkImage(userProfilePictureUrl),
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
               // Center(
@@ -131,33 +136,33 @@ class SettingsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // ElevatedButton.icon(
-              //   onPressed: () {
-              //     final provider =
-              //         Provider.of<GoogleSignInProvider>(context, listen: false);
-              //     provider.googleLogout();
+              ElevatedButton.icon(
+                onPressed: () {
+                  final provider =
+                      Provider.of<GoogleSignInProvider>(context, listen: false);
+                  provider.googleLogout();
 
-              //     // navigate to welcome page
-              //     Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //       return const WelcomePage();
-              //     }));
-              //   },
-              //   style: ElevatedButton.styleFrom(
-              //       backgroundColor: Constants.primary,
-              //       minimumSize: const Size(180, 45),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(15),
-              //       ),
-              //       elevation: 8),
-              //   label: const Text('Logout',
-              //       style: TextStyle(
-              //         fontSize: 18,
-              //         fontWeight: FontWeight.bold,
-              //         color: Colors.white,
-              //         fontFamily: 'ProductSans',
-              //       )),
-              //   icon: const Icon(Icons.logout),
-              // ),
+                  // navigate to welcome page
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const WelcomePage();
+                  }));
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Constants.primary,
+                    minimumSize: const Size(180, 45),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 8),
+                label: const Text('Logout',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontFamily: 'ProductSans',
+                    )),
+                icon: const Icon(Icons.logout),
+              ),
               const SizedBox(height: 20),
             ],
           ),

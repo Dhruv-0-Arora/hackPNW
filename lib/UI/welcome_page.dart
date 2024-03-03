@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
+import 'package:hack_pnw/Core/gnav_bar.dart';
+import 'package:hack_pnw/Core/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -49,23 +52,49 @@ class _WelcomePageState extends State<WelcomePage> {
                   style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
                 ),
                 const Spacer(),
-                const SizedBox(
-                  width: 220,
-                  child: ElevatedButton(
-                    onPressed: null,
-                    style: ButtonStyle(
-                        //backgroundColor: Colors.blueAccent,
-                        ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(Icons.logo_dev),
-                        Spacer(),
-                        Text('Login in with Google')
-                      ],
-                    ),
-                  ),
-                ),
+                ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Constants.primary,
+                                minimumSize: const Size(220, 45),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 8),
+
+                            // text of button
+                            label: const Text(
+                              'Sign In with Google',
+                              style: TextStyle(
+                                fontFamily: 'Product Sans',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+
+                            // icon of button
+                            icon: const Icon(Icons.login),
+
+                            // functionality
+                            onPressed: () async {
+                              final provider =
+                                  Provider.of<GoogleSignInProvider>(context,
+                                      listen: false);
+                              await provider.googleLogin();
+
+                              // check if login was successful
+                              if (provider.isCurrentUser() == false) {
+                                return;
+                              }
+                              
+                              // ignore: use_build_context_synchronously
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (context) => const GoogleNavBar(),
+                                ),
+                              );
+                                                        },
+                          ),
                 /*const SizedBox(
                   width: 220,
                   child: ElevatedButton(

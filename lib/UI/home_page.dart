@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
 import 'package:hack_pnw/UI/upload_page.dart';
+import 'package:hack_pnw/UI/view_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -53,35 +54,94 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     //Boxes for the saved videos
                       children: <Widget>[
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {
-                            // Open YT video
-                            print('Opening YouTube video: videoLink');
+                            // Open YT video in viewer
+                           Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ViewPage(
+                                videoURL: "https://www.youtube.com/watch?v=0JUN9aDxVmI",
+                              ),
+                            ),
+                          );
                           },
                           child: Container(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Colors.grey[300],
+                              color: Colors.grey[300]?.withOpacity(0.7),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Expanded(
                                   child: Column(
                                     children: [
+                                      SizedBox(height: 10),
                                       Text(
-                                        'title',
-                                        style: TextStyle(fontFamily: 'Oswald', fontSize: 35),
+                                        'My First Lecture',
+                                        style: TextStyle(fontFamily: 'Product Sans', fontSize: 35),
                                       ),
-                                      Text(
-                                        'link',
-                                        style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
-                                      ),
+                                      // Text(
+                                      //   'link',
+                                      //   style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
+                                      // ),
+                                      SizedBox(height: 15),
                                       Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
                                       SizedBox(width: 10),
                                       Text('Watch Video'), 
+                                      SizedBox(height: 10),
+                                    ]
+                                  ),
+                                 ), 
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+                        const SizedBox(height: 20),
+                        GestureDetector(
+                          onTap: () {
+                            // Open YT video in viewer
+                           Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ViewPage(
+                                videoURL: "https://www.youtube.com/watch?v=0JUN9aDxVmI",
+                              ),
+                            ),
+                          );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300]?.withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 10),
+                                      Text(
+                                        'My 2nd Lecture',
+                                        style: TextStyle(fontFamily: 'Product Sans', fontSize: 35),
+                                      ),
+                                      // Text(
+                                      //   'link',
+                                      //   style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
+                                      // ),
+                                      SizedBox(height: 15),
+                                      Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
+                                      SizedBox(width: 10),
+                                      Text('Watch Video'), 
+                                      SizedBox(height: 10),
                                     ]
                                   ),
                                  ), 
@@ -91,22 +151,23 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         //button to move to upload page
-                        SizedBox(height: 20,),
-                        ElevatedButton(
-                          onPressed: () {
-                            //move to upload page
-                          },
-                          style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Constants.quaternary),
-                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                          ),
-                        ),
-                        child: const Text("Upload Video",  style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "Oswald"),),
-                        ),                        
+                        // SizedBox(height: 20,),
+                        // ElevatedButton(
+                        //   onPressed: () {
+                        //     // force gnav to upload page
+                            
+                        //   },
+                        //   style: ButtonStyle(
+                        //   backgroundColor: MaterialStateProperty.all<Color>(Constants.quaternary),
+                        //   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                        //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        //     RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(18.0),
+                        //     ),
+                        //   ),
+                        // ),
+                        // child: const Text("Upload Video",  style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "Oswald"),),
+                        // ),                        
                       ],
                     ),
                   ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "797609556140",
+    "project_id": "papyrus-e5ef4",
+    "storage_bucket": "papyrus-e5ef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797609556140:android:5755523842f2eca2fec709",
+        "android_client_info": {
+          "package_name": "com.example.hack_pnw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlGfSDRRHsSbqi3RhYFjJdsGCoUngH6OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
