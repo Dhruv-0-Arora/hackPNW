@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hack_pnw/Core/gnav_bar_controller.dart';
+import 'package:hack_pnw/Core/constants.dart';
 
 class GoogleNavBar extends StatelessWidget {
   const GoogleNavBar({Key? key}) : super(key: key);
