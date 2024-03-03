@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
 
-/*class Welcome extends StatelessWidget {
-  const Welcome({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}*/
-
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 
@@ -26,14 +9,6 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  /*int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,12 +41,10 @@ class _WelcomePageState extends State<WelcomePage> {
                   flex: 2,
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(35, 0, 15, 0),
-                  child: const Image(
-                    image: NetworkImage(
-                        'https://cdn.discordapp.com/attachments/1210124560926646332/1213755312943665172/image.png?ex=65f6a0b9&is=65e42bb9&hm=5e67480b3845597a52795291495538f21f3e40bd34a13db43fe00649f7810073&'),
-                  ),
-                ),
+                    padding: const EdgeInsets.fromLTRB(35, 0, 15, 0),
+                    child: const Image(
+                      image: AssetImage('assets/transparent_logo.png'),
+                    )),
                 const Spacer(),
                 const Text(
                   'Welcome to Papyrus',
