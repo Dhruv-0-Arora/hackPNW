@@ -7,9 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       body: Center(
-
         child: Container (
           padding: const EdgeInsets.fromLTRB(40, 150, 40, 150),
           width: MediaQuery.of(context).size.width,
@@ -23,8 +21,9 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          )
+          
       ),
+    ),
     );
   }
 }
