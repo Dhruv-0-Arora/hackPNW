@@ -14,7 +14,6 @@ class GoogleNavBar extends StatelessWidget {
 
     return Scaffold(
         bottomNavigationBar: 
-        
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration( // Shadow and designing of the google nav bar
@@ -30,13 +29,17 @@ class GoogleNavBar extends StatelessWidget {
               
             ),
             child: GNav(
+              //Icon colors of pages in use/not in use
               activeColor: Colors.black,
               color: Colors.grey,
+              //Navbar matches color of page background
               backgroundColor: Constants.secondary,
+              //Marker for currently selected page 
               tabBackgroundColor: const Color.fromARGB(70, 255, 255, 255),
               tabBorderRadius: 20,
               tabMargin: const EdgeInsets.all(10),
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              //Calling gnav_bar_controller.dart when user changes page
               onTabChange: (value) {
                 _controller.index.value = value;
               },
