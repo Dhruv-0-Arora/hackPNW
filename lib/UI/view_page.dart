@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class DiscoverPage extends StatefulWidget {
-  const DiscoverPage({Key? key}) : super(key: key);
+class ViewPage extends StatefulWidget {
+  final String videoURL;
+
+  const ViewPage({Key? key, required this.videoURL}) : super(key: key);
 
   @override
-  State<DiscoverPage> createState() => _DiscoverPageState();
+  State<ViewPage> createState() => _ViewPageState();
 }
 
-class _DiscoverPageState extends State<DiscoverPage> {
-  final videoURL = 'https://www.youtube.com/watch?v=blehVIDyuXk';
+class _ViewPageState extends State<ViewPage> {
+  late String videoURL;
 
   // getting the relevant information
   List<Map<String, int>> timeStamps = [
@@ -39,23 +41,22 @@ class _DiscoverPageState extends State<DiscoverPage> {
   @override
   void initState() {
     super.initState();
+    videoURL = widget.videoURL;
 
     pageController.addListener(() {
       int currentPage = pageController.page!.round();
       // get the current controller from _players
       YoutubePlayerController _controller = _controllers[currentPage];
-    
+
       // seek to the timestamp
-      _controller.addListener(() { 
-        _controller.seekTo(Duration(seconds: timeStamps[currentPage]["start"]!));
+      _controller.addListener(() {
+        _controller
+            .seekTo(Duration(seconds: timeStamps[currentPage]["start"]!));
       });
 
       // play the video
       _controller.play();
     });
-
-
-
 
     // for each timestamp, create a new player and for each play seek to the start time
     for (var i = 0; i < timeStamps.length; i++) {
@@ -70,9 +71,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
       _controllers.add(_controller);
     }
 
-
-
-
     // for each controller in _controllers, create a new player
     for (var i = 0; i < _controllers.length; i++) {
       _players.add(
@@ -81,10 +79,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
           child: YoutubePlayer(
             controller: _controllers[i],
             onReady: () => {
-              _controllers[i].seekTo(Duration(seconds: timeStamps[i]["start"]!)),
+              _controllers[i]
+                  .seekTo(Duration(seconds: timeStamps[i]["start"]!)),
               _controllers[i].play(),
             },
-
             showVideoProgressIndicator: true,
           ),
         ),
@@ -94,8 +92,13 @@ class _DiscoverPageState extends State<DiscoverPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: const BackButton(color: Colors.white,),
+        backgroundColor: Colors.transparent,
+        elevation: 1,
+      ),
       body: PageView(
         scrollDirection: Axis.vertical,
         scrollBehavior: const MaterialScrollBehavior(),

@@ -12,9 +12,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),*/
+
       body: Center(
         child: Container(
           padding: const EdgeInsets.fromLTRB(40, 150, 40, 150),
