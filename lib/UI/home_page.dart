@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
+import 'package:hack_pnw/UI/upload_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          child: Container(
+          child: Container( //Name and logo in top bar
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 45),
             alignment: Alignment.topCenter,
             child: Column(children: [
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
 
-              Container(
+              Container( //Line and drop shadow in top bar
                 margin: const EdgeInsets.symmetric(vertical: 0),
                 height: 4,
                 decoration: BoxDecoration(
@@ -46,57 +47,45 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // scrolling pane
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      const SizedBox(height: 20),
-                      const Text("Welcome to Papyrus", style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold, fontFamily: "Avenir Next LT Pro"),),
-                      const SizedBox(height: 20),
-                      const Text("Papyrus is a platform for students to share and access notes, study guides, and other educational resources. We aim to make learning more accessible and efficient for everyone.", style: TextStyle(fontSize: 18, color: Colors.white, fontFamily: "Avenir Next LT Pro"),),
-                      const SizedBox(height: 20),
-                      const Text("Get started by uploading your own notes or searching for resources.", style: TextStyle(fontSize: 18, color: Colors.white, fontFamily: "Avenir Next LT Pro"),),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/upload');
-                        },
-                        child: const Text("Upload Notes", style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "Avenir Next LT Pro"),),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
-                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: 20),
+                        GestureDetector(
+                          onTap: () {
+                            // Add your logic to open the YouTube video here
+                            print('Opening YouTube video: videoLink');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'title',
+                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 20),
+                                Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
+                                SizedBox(width: 10),
+                                Text('Watch Video'),
+                              ],
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/search');
-                        },
-                        child: const Text("Search Resources", style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "Avenir Next LT Pro"),),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
-                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ),
+               ),
             ],
-          ),
+            ),
+              
           ),
           
       ),
