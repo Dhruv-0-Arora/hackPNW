@@ -25,7 +25,7 @@ class GoogleNavBar extends StatelessWidget {
           },
           tabs: [
             GButton(icon: Icons.home, text: 'Home'),
-            GButton(icon: Icons.search, text: 'Search'),
+            GButton(icon: Icons.upload, text: 'Upload'),
             GButton(icon: Icons.search, text: 'Discover'),
             GButton(icon: Icons.settings, text: 'Settings')
           ],
