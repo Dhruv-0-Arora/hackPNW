@@ -46,13 +46,7 @@ class SettingsPage extends StatelessWidget {
           ),
           pinned: true,
           expandedHeight: 200,
-          backgroundColor: Constants.primary,
-          flexibleSpace: FlexibleSpaceBar(
-            background: Image.asset(
-              'assets/images/welcome_background.png',
-              fit: BoxFit.cover,
-            ),
-          ),
+          backgroundColor: Constants.primary, 
         ),
         SliverToBoxAdapter(
           child: Column(
