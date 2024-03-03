@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hack_pnw/UI/test_page.dart';
 import 'package:hack_pnw/UI/welcome_page.dart';
+import 'package:hack_pnw/Core/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Papyrus',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Constants.accentColor),
         useMaterial3: true,
       ),
       home: const TestPage(),
