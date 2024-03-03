@@ -18,16 +18,20 @@ class GoogleNavBar extends StatelessWidget {
           backgroundColor: Colors.white,
           tabBackgroundColor: Colors.black,
           tabBorderRadius: 20,
-          tabMargin: EdgeInsets.all(10),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          tabMargin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           onTabChange: (value) {
             _controller.index.value = value;
           },
-          tabs: [
+          tabs: const [
             GButton(icon: Icons.home, text: 'Home'),
             GButton(icon: Icons.upload, text: 'Upload'),
             GButton(icon: Icons.search, text: 'Discover'),
-            GButton(icon: Icons.settings, text: 'Settings')
+            GButton(icon: Icons.settings, text: 'Settings'),
+            /*GButton(icon: Icons.perm_media_outlined, text: 'Home'),
+            GButton(icon: Icons.playlist_add, text: 'Upload'),
+            GButton(icon: Icons.ondemand_video_outlined, text: 'Discover'),
+            GButton(icon: Icons.settings, text: 'Settings')*/
           ],
         ),
         body: Obx(
