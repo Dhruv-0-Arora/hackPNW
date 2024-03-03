@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hack_pnw/Core/constants.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,11 +7,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
+    
       body: Center(
-        child: Text('Home Page'),
+
+        child: Container (
+          padding: const EdgeInsets.fromLTRB(40, 150, 40, 150),
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Constants.primary,
+                Constants.secondary,
+              ],
+            ),
+          ),
+          )
       ),
     );
   }

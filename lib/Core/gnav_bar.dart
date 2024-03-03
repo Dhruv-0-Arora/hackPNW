@@ -15,7 +15,7 @@ class GoogleNavBar extends StatelessWidget {
         bottomNavigationBar: GNav(
           activeColor: Colors.green,
           color: Colors.grey,
-          backgroundColor: Colors.white,
+          backgroundColor: Constants.secondary,
           tabBackgroundColor: Colors.black,
           tabBorderRadius: 20,
           tabMargin: const EdgeInsets.all(10),
