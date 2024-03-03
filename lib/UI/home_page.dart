@@ -51,11 +51,12 @@ class HomePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    //Boxes for the saved videos
                       children: <Widget>[
                         SizedBox(height: 20),
                         GestureDetector(
                           onTap: () {
-                            // Add your logic to open the YouTube video here
+                            // Open YT video
                             print('Opening YouTube video: videoLink');
                           },
                           child: Container(
@@ -71,11 +72,11 @@ class HomePage extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Text(
-                                        'Title',
+                                        'title',
                                         style: TextStyle(fontFamily: 'Oswald', fontSize: 35),
                                       ),
                                       Text(
-                                        'Link',
+                                        'link',
                                         style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
                                       ),
                                       Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
@@ -89,6 +90,23 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        //button to move to upload page
+                        SizedBox(height: 20,),
+                        ElevatedButton(
+                          onPressed: () {
+                            //move to upload page
+                          },
+                          style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(Constants.quaternary),
+                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                        ),
+                        child: const Text("Upload Video",  style: TextStyle(fontSize: 20, color: Colors.white, fontFamily: "Oswald"),),
+                        ),                        
                       ],
                     ),
                   ),
