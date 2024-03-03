@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Papyrus',
       theme: ThemeData(
         //
-        colorScheme: ColorScheme.fromSeed(seedColor: Constants.tan),
+        //colorScheme: ColorScheme.fromSeed(seedColor: Constants.primary),
         useMaterial3: true,
       ),
       home: const WelcomePage(),
