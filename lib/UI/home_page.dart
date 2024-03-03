@@ -67,14 +67,24 @@ class HomePage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'title',
-                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(height: 20),
-                                Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
-                                SizedBox(width: 10),
-                                Text('Watch Video'),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'Title',
+                                        style: TextStyle(fontFamily: 'Oswald', fontSize: 35),
+                                      ),
+                                      Text(
+                                        'Link',
+                                        style: TextStyle(fontFamily: 'Oswald', fontSize: 25),
+                                      ),
+                                      Icon(Icons.reset_tv_outlined, size: 40, color: Colors.red),
+                                      SizedBox(width: 10),
+                                      Text('Watch Video'), 
+                                    ]
+                                  ),
+                                 ), 
+
                               ],
                             ),
                           ),
