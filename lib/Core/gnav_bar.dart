@@ -51,8 +51,6 @@ class GoogleNavBar extends StatelessWidget {
               ],
             ),
           ),
-
-
         body: Obx(
           () => _controller.pages[_controller.index.value],
         ));
