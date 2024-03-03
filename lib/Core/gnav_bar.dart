@@ -13,23 +13,27 @@ class GoogleNavBar extends StatelessWidget {
         Get.put(BottomNavigationBarController());
 
     return Scaffold(
-        bottomNavigationBar: GNav(
-          activeColor: Colors.green,
-          color: Colors.grey,
-          backgroundColor: Constants.secondary,
-          tabBackgroundColor: Colors.black,
-          tabBorderRadius: 20,
-          tabMargin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-          onTabChange: (value) {
-            _controller.index.value = value;
-          },
-          tabs: const [
-            GButton(icon: Icons.home, text: 'Home'),
-            GButton(icon: Icons.upload, text: 'Upload'),
-            GButton(icon: Icons.search, text: 'Discover'),
-            GButton(icon: Icons.settings, text: 'Settings')
-          ],
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          decoration: const BoxDecoration(color: Constants.secondary),
+          child: GNav(
+            activeColor: Colors.black,
+            color: Colors.grey,
+            backgroundColor: Constants.secondary,
+            tabBackgroundColor: const Color.fromARGB(100, 255, 255, 255),
+            tabBorderRadius: 20,
+            tabMargin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+            onTabChange: (value) {
+              _controller.index.value = value;
+            },
+            tabs: const [
+              GButton(icon: Icons.home, text: 'Home'),
+              GButton(icon: Icons.upload, text: 'Upload'),
+              GButton(icon: Icons.search, text: 'Discover'),
+              GButton(icon: Icons.settings, text: 'Settings')
+            ],
+          ),
         ),
         body: Obx(
           () => _controller.pages[_controller.index.value],
