@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hack_pnw/Core/constants.dart';
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   // final user = FirebaseAuth.instance.currentUser;
   // final userProfilePictureUrl = user?.photoURL ?? '';
 
